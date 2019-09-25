@@ -1,0 +1,27 @@
+{
+  "name": "cerebral-get-started",
+  "version": "1.0.0",
+  "description": "A minimum starting point for Cerebral apps",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@cerebral/react": "^4.1.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "cerebral": "latest",
+    "eslint": "^6.4.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-cerebral": "canary",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": [
+    "cerebral"
+  ]
+}

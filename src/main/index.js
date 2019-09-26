@@ -1,11 +1,12 @@
-import { state } from "cerebral";
-import { set } from "cerebral/factories";
+import { state } from 'cerebral';
+import { set } from 'cerebral/factories';
 
 export default {
   state: {
-    title: "Hello from Cerebral"
+    currentGame: {
+      userAction: 'rock',
+      opponentAction: 'paper',
+    },
   },
-  sequences: {
-    toggleTitle: [set(state`title`, "You toggled me!")]
-  }
+  sequences: {},
 };

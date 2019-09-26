@@ -8,6 +8,6 @@ Then we installed React and integrated into the app thanks to https://cerebraljs
 
 yarn
 
-## Whatever
+## Resources
 
-...
+Rock-scissor-paper icons stolen from: http://armandobarros.com/Projects/rps/index.html

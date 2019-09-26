@@ -4,8 +4,13 @@ import App from 'cerebral';
 import { Container } from '@cerebral/react';
 import AppComponent from './components/App';
 import main from './main';
+import Devtools from 'cerebral/devtools';
 
-const app = App(main);
+const app = App(main, {
+  devtools: Devtools({
+    host: 'localhost:8586',
+  }),
+});
 
 render(
   <Container app={app}>

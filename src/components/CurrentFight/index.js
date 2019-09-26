@@ -3,30 +3,45 @@ import { state, sequences } from 'cerebral';
 import { connect } from '@cerebral/react';
 import FlexChildWrapper from '../FlexChildWrapper';
 import Action from '../Action';
-import { iconsMap } from '../../main/static';
+import FlexCentered from '../FlexCentered';
+import { iconsMap, resultsAssets } from '../../main/static';
 
 export default connect(
   {
-    currentGame: state`currentGame`,
+    userAction: state`currentGame.userAction`,
+    opponentAction: state`currentGame.opponentAction`,
+    result: state`currentGame.result`,
   },
-  ({ currentGame, get, ...props }) => {
-    return (
-      <FlexChildWrapper
-        flex_grow={props.flex_grow}
-        bg_color={'#f2a6a6'}
-        className={props.className}
-      >
-        <Action
-          icon={iconsMap[currentGame.userAction]}
-          rotate={'45deg'}
-          animate={'leftPunch'}
-        ></Action>
-        <Action
-          icon={iconsMap[currentGame.opponentAction]}
-          rotate={'-45deg'}
-          animate={'rightPunch'}
-        ></Action>
-      </FlexChildWrapper>
-    );
+  ({ userAction, opponentAction, test, result, ...props }) => {
+    if (userAction && opponentAction && result) {
+      return (
+        <FlexChildWrapper
+          flex_grow={props.flex_grow}
+          bg_color={resultsAssets[result].bgColor}
+          className={props.className}
+        >
+          <Action
+            icon={iconsMap[userAction]}
+            rotate={'45deg'}
+            animate={'leftPunch'}
+          ></Action>
+          <Action
+            icon={iconsMap[opponentAction]}
+            rotate={'-45deg'}
+            animate={'rightPunch'}
+          ></Action>
+        </FlexChildWrapper>
+      );
+    } else {
+      return (
+        <FlexChildWrapper
+          flex_grow={props.flex_grow}
+          bg_color={'#f2a6a6'}
+          className={props.className}
+        >
+          <FlexCentered>Pick an action</FlexCentered>
+        </FlexChildWrapper>
+      );
+    }
   }
 );

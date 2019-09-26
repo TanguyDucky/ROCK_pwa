@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
 function getAnimation(animationName) {
-  console.log(animationName);
   const leftPunch = keyframes`
   from {
     margin-left: -50px;

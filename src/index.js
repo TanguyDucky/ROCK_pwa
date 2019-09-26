@@ -8,7 +8,7 @@ import Devtools from 'cerebral/devtools';
 
 const app = App(main, {
   devtools: Devtools({
-    host: 'localhost:8586',
+    host: 'localhost:52001',
   }),
 });
 

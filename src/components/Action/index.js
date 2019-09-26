@@ -4,7 +4,7 @@ import Icon50 from '../Icon50';
 
 export default function(props) {
   return (
-    <ActionButton>
+    <ActionButton onClick={props.onClick}>
       <Icon50
         src={props.icon}
         rotate={props.rotate}

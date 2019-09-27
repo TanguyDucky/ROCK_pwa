@@ -11,3 +11,12 @@ yarn
 ## Resources
 
 Rock-scissor-paper icons stolen from: http://armandobarros.com/Projects/rps/index.html
+
+# TODO
+
+- show current session WIN/OPPONENT WIN
+- have a 2-tabs navigation bar with "Game" and "Leaderboard"
+- generate a username for new user
+- change username from Leaderboard page
+- after every game, increment the number of WIN, LOST, DRAW, TOTAL game locally and in firestore
+- Multiplayer game

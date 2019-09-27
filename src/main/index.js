@@ -1,16 +1,41 @@
-import { state, props } from 'cerebral';
-import { set } from 'cerebral/factories';
-import { getRandomAction, setResults } from './game';
+import { state, props } from 'cerebral/tags';
+import { set } from 'cerebral/operators';
+import { getRandomAction, setResults } from '../actions/game';
+import * as firebaseProvider from '../providers/firebase';
+import * as localStorageProvider from '../providers/localstorage';
+import { Module } from 'cerebral';
 
-export default {
+export default Module({
   state: {
     currentGame: {
       userAction: null,
       opponentAction: null,
       result: null,
     },
+    firebase: {
+      isLoggedIn: false,
+      isLoading: false,
+      user: {
+        uid: null,
+        won: 0,
+        draw: 0,
+        lost: 0,
+        total: 0,
+      },
+    },
   },
-  sequences: {
+  signals: {
+    initApp: [
+      set(state`firebase.isLoading`, true),
+      ({ localStorageProvider }) => localStorageProvider.getUUID(),
+      ({ firebaseProvider }) => firebaseProvider.logIntoFirebase(),
+      // context => console.log(context),
+      set(state`firebase.isLoggedIn`, props`isLoggedIn`),
+      set(state`firebase.user.uid`, props`uid`),
+      ({ firebaseProvider, props }) =>
+        firebaseProvider.getUserScores(props.uuid),
+      set(state`firebase.isLoading`, false),
+    ],
     pickUserAction: [
       set(state`currentGame.userAction`, props`action`),
       getRandomAction,
@@ -23,4 +48,8 @@ export default {
       set(state`currentGame.result`, null),
     ],
   },
-};
+  providers: {
+    localStorageProvider,
+    firebaseProvider,
+  },
+});

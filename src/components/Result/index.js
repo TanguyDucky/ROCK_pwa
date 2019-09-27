@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from '@cerebral/react';
-import { state, sequences } from 'cerebral';
+import { state, signal } from 'cerebral/tags';
 import { resultsAssets } from '../../main/static';
 import AbsoluteResultWrapper from '../AbsoluteResultWrapper';
 import PlayAgain from '../PlayAgain';
@@ -8,7 +8,7 @@ import PlayAgain from '../PlayAgain';
 export default connect(
   {
     result: state`currentGame.result`,
-    playAgain: sequences`playAgain`,
+    playAgain: signal`playAgain`,
   },
   ({ result, playAgain, ...props }) => {
     return (

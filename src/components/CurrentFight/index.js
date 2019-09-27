@@ -1,5 +1,5 @@
 import React from 'react';
-import { state, sequences } from 'cerebral';
+import { state } from 'cerebral/tags';
 import { connect } from '@cerebral/react';
 import FlexChildWrapper from '../FlexChildWrapper';
 import Action from '../Action';

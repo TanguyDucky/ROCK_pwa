@@ -4,11 +4,11 @@ import FlexWrapper from '../FlexWrapper';
 import Action from '../Action';
 import { iconsMap } from '../../main/static';
 import { connect } from '@cerebral/react';
-import { sequences, state } from 'cerebral';
+import { signal } from 'cerebral/tags';
 
 export default connect(
   {
-    pickUserAction: sequences`pickUserAction`,
+    pickUserAction: signal`pickUserAction`,
   },
   ({ pickUserAction, get, ...props }) => {
     return (

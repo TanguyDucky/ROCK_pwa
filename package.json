@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html -d gh-pages --public-url https://tanguyducky.github.io/ROCK_pwa/gh-pages/"
+    "build": "parcel build index.html --public-url https://rock-pwa.web.app/"
   },
   "dependencies": {
     "@babel/cli": "^7.6.2",
@@ -17,7 +17,8 @@
     "eslint": "^6.4.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
